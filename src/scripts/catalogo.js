@@ -12,7 +12,7 @@ document.getElementById('formulario-producto').addEventListener('submit', (e) =>
     const name = document.getElementById('name').value;
     const description = document.getElementById('description').value;
     const price = document.getElementById('price').value;
-    const img = document.getElementById('img').value.toString().slice(12);
+    const img = document.getElementById('img').value.toString().slice(12);//Imágenes para productos SÍ o Sí en carpeta images.
     const producto = new Producto(name, description, price, img);
     
     const catalogo = new Catalogo();
