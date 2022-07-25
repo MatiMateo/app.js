@@ -12,9 +12,8 @@ document.getElementById('formulario-producto').addEventListener('submit', (e) =>
     const name = document.getElementById('name').value;
     const description = document.getElementById('description').value;
     const price = document.getElementById('price').value;
-    //const img = document.getElementById('img').value;
-      
-    const producto = new Producto(name, description, price);
+    const img = document.getElementById('img').value.toString().slice(12);
+    const producto = new Producto(name, description, price, img);
     
     const catalogo = new Catalogo();
     catalogo.agregarProducto(producto);
@@ -26,10 +25,10 @@ class Catalogo {
     agregarProducto (producto) {
         const contenedor = document.getElementById('contenedor');
         const prod = document.createElement('div');
-        //prod.classList.add('w-[100%]');
+        prod.classList.add('w-[100%]');
         prod.innerHTML = `<div class="flex font-sans bg-white rounded-lg shadow-lg">
                             <div class="relative flex-none w-48">
-                                <img src="./images/toa-heftiba-ua9ReZlzcIE-unsplash.jpg" alt="Imagen"
+                                <img src="./images/${producto.img}" alt="Imagen"
                                     class="absolute inset-0 object-cover w-full h-full" loading="lazy" />
                             </div>
                             <form class="flex-auto p-6">
