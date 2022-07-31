@@ -1,15 +1,5 @@
-class Producto {
-    constructor(id, name, description, price, img, stock, cantidad, categoria) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-        this.price = price;
-        this.img = img;
-        this.stock = stock;
-        this.cantidad = cantidad;
-        this.categoria = categoria;
-    }
-}
+import {Producto} from './productos.js'
+
 const productos = [];
 productos.push(new Producto(1,'Campera Verde', '100% canchera', 8500, './images/campera-verde.jpg', 5, 0, 'Camperas'));
 productos.push(new Producto(2,'Gorros', '100% perfectos', 900, './images/gorro.jpg', 20, 0, 'Gorros'));
@@ -17,8 +7,8 @@ productos.push(new Producto(3,'Jean', '100% calce perfecto', 5400, './images/jea
 productos.push(new Producto(4,'Remera', '100% algodon', 1450, './images/remera-blanca.jpg', 20, 0, 'Remeras'));
 productos.push(new Producto(5, 'Sweater', '100% abrigado', 4600, './images/sweater-verde.jpg', 8, 0, 'Sweaters'));
 productos.push(new Producto(6, 'Top Floreado', '100% cómodo', 1890, './images/top-floreado.jpg', 15, 0, 'Tops'));
-console.log(productos);
 const carrito = [];
+
 // Interfaz
 const contenedorTarjProd = document.getElementById('contenedorCatalogo');
 const tarjProducto = () => {
@@ -111,23 +101,21 @@ const tarjProducto = () => {
 tarjProducto(productos);
 
 const contenedorCategorias = document.getElementById('contenedorCategorias')
-const verCategorías = () => {
-    const buscadorCategorías = document.getElementById('categorias')
-    buscadorCategorías.addEventListener('mouseenter', () => {
-        const catgs = document.createElement('div')
-        catgs.classList.add('mb-2','border-t-2','border-b-2','border-b-gray-400','border-t-gray-400','text-center','text-gray-400')
-        catgs.innerHTML = `1-Camperas, 2-Gorros, 3-Jeans, 4-Remeras, 5-Sweaters, 6-Tops`
-        contenedorCategorias.appendChild(catgs)
-        
-    })
-    buscadorCategorías.addEventListener('mouseout', () => {
-        const catgs = document.createElement('div')
-        catgs.innerHTML = ``
-        contenedorCategorias.appendChild(catgs)
-        
-    })
+const buscadorCategorias = document.getElementById('categorias')
+const catgs = document.createElement('div')
+const verCategorias = () => {
+    catgs.classList.add('mb-2','border-t-2','border-b-2','border-b-gray-400','border-t-gray-400','text-center','text-gray-400', 'block')
+    catgs.innerHTML = `1-Camperas, 2-Gorros, 3-Jeans, 4-Remeras, 5-Sweaters, 6-Tops`
+    contenedorCategorias.appendChild(catgs)
 }
-verCategorías();
+const ocultarCategorias = () => catgs.remove()
+buscadorCategorias.addEventListener('mouseover', verCategorias)
+buscadorCategorias.addEventListener('mouseout', ocultarCategorias)
+
+
+/* const verCategorías = () => {
+    contenedorCategorias.innerHTML = ``
+} */
 //Boton Buscar y Filtrar
 const filtrarProds = (category) => {
     const prodFiltrados = productos.filter(Element => Element.id == category)

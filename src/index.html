@@ -16,7 +16,7 @@
           <path fill-rule="evenodd" clip-rule="evenodd"
             d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" />
         </svg>
-        <input id="categorias"
+        <input id="categorias" 
           class="focus:ring-2 focus:ring-blue-500 m-2 focus:outline-none appearance-none w-full text-sm leading-6 text-slate-900 placeholder-slate-400 rounded-xl py-2 pl-10 ring-1 ring-slate-200 shadow-sm"
           type="text" aria-label="Categorías" placeholder="Categorías">
         <button id="btnBuscar" class="px-2 py-2 bg-blue-500 m-2 text-white font-bold rounded-xl">Buscar</button>
@@ -27,6 +27,7 @@
     </div>  
     <div id="contenedorCatalogo" class="grid grid-flow-row grid-cols-1 gap-2 px-1 py-1 lg:grid-cols-2 lg:grid-rows-2 lg:gap-2">
     </div>
-    <script src="./scripts/catalogo.js" defer></script>
+    <script src="./scripts/catalogo.js" type="module" defer></script>
+    <script src="./scripts/productos.js" type="module" defer></script>
 </body>
 </html>
