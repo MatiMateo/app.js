@@ -367,7 +367,13 @@ productosEnCarrito.addEventListener('click', (e) => {
         }
     }
     if (e.target.id === 'generarLinkDePago') {
-        console.log('Boton para pagar');
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Vamos a pagar, gracias por elegirnos',
+            showConfirmButton: false,
+            timer: 3500
+          })
     }
 })
 
